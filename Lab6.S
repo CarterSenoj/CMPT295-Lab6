@@ -19,7 +19,7 @@ add $1, %rdi
 jmp loop_strlen
 
 done_strlen:
-ret                     # Return with count in %rax
+ret
 
 strlen_utf8:
 # counter
@@ -41,6 +41,7 @@ je skip
 inc %rax
 
 skip:
+# even when skipped move along the string
 add $1, %rdi
 jmp loop_utf8
 
